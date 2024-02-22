@@ -1,15 +1,16 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import MainPage from './pages/MainPage';
 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       
-        <div>
-          ijoa-project
-        </div>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
