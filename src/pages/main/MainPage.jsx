@@ -1,9 +1,11 @@
 import { Container, Section, SubTitle, Title, Content } from './styled'
 import main from '../../assets/main1.png'
+import Header from '../../components/common/Header/Header'
 
 function MainPage() {
   return (
     <>
+      <Header />
       <Container>
         <Section>
           <SubTitle>공동체 가족을 위한 공유형 육아 플랫폼</SubTitle>
