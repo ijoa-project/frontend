@@ -8,10 +8,10 @@ WORKDIR /app
 COPY . /app
 
 # 의존성 설치
-RUN npm install
+RUN yarn install
 
 # 빌드
-RUN npm run build
+RUN yarn build
 
 # 런타임 이미지 선택
 FROM nginx:alpine
