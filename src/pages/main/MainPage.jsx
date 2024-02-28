@@ -8,7 +8,7 @@ function MainPage() {
       <Header />
       <Container>
         <Section>
-          <SubTitle>젠킨스 테스트</SubTitle>
+          <SubTitle>공동체 가족을 위한 공유형 육아 플랫폼</SubTitle>
           <Title>함께 웃는 돌봄의 시작,</Title>
           <Title>아이조아와 함께하세요!</Title>
           <Content>
