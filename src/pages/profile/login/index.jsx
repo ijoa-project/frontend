@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Header from 'components/common/Header/Header'
+import Header from 'components/common/Header'
 import {
   Container,
   LoginBtn,

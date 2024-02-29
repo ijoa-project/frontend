@@ -1,6 +1,6 @@
 import { Container, Section_first, Section_second, SubTitle, Title, Content, Img } from './styled'
 import main from 'assets/main1.png'
-import Header from 'components/common/Header/Header'
+import Header from 'components/common/Header'
 
 function MainPage() {
   return (
@@ -27,5 +27,4 @@ function MainPage() {
     </>
   )
 }
-
 export default MainPage
