@@ -1,49 +1,62 @@
-import { styled, Button, Grid } from '@mui/material'
+import { styled } from 'styled-components'
 
-export const Frame = styled(Grid)(() => ({
-  backgroundColor: 'white',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  padding: '26px 30px 0px 30px',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  right: 0,
-  zIndex: 999,
-}))
+// export const Container = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   flex-direction: column;
+//   padding: 100px 15vw 30px 15vw;
 
-export const Title = styled(Grid)(() => ({
-  fontWeight: '700',
-  marginLeft: '80px',
-  marginBottom: 7.5,
-  textAlign: 'center',
-  fontSize: 22,
-  color: '#5D5A88',
-  '&:hover': {
-    backgroundColor: '#fff',
-    cursor: 'pointer',
+//   // Desktop
+//   @media (min-width: 768px) {
+//     justify-content: space-around;
+//     flex-direction: row;
+//   }
+// `
+
+export const Frame = styled.div`
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 30px 0px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  zindex: 999;
+`
+
+export const Title = styled.div`
+  font-weight: 700;
+  margin-left: 80px;
+  margin-bottom: 7.5px;
+  text-align: center;
+  font-size: 22px;
+  color: #5d5a88;
+  &:hover {
+    background-color: #fff;
+    cursor: pointer;
+  }
+  &:active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+`
+
+export const Contents = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
+export const LoginBtn = styled.button`
+  text-align: center;
+  margin: -8px 20px 0px 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 40px;
+  background-color: #5D5A88;
+  color: #fff;
+  &:hover {
+    background-color: #8D8BA7;
   },
-  '&:active': {
-    backgroundColor: 'transparent',
-    boxShadow: 'none',
-  },
-}))
-
-export const Contents = styled(Grid)(() => ({
-  display: 'flex',
-  justifyContent: 'flex-end',
-}))
-
-export const LoginBtn = styled(Button)(() => ({
-  textAlign: 'center',
-  margin: '-8px 20px 0px 12px',
-  fontSize: 16,
-  fontWeight: 600,
-  borderRadius: '40px',
-  backgroundColor: '#5D5A88',
-  color: '#fff',
-  '&:hover': {
-    backgroundColor: '#8D8BA7',
-  },
-}))
+`

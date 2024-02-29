@@ -1,5 +1,5 @@
 import { Container, List, ListItem } from '@mui/material'
-import Header from '../../components/common/Header/Header'
+import Header from 'components/common/Header'
 
 function MyPageClient() {
   return (
