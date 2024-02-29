@@ -4,8 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import MainPage from 'pages/main'
 import LoginPage from 'pages/profile/login'
 import SignupPage from 'pages/profile/signup'
-import MyPageClient from './pages/mypage/MyPageClient.jsx'
-import MyPageTeacher from './pages/mypage/MyPageTeacher.jsx'
+import { MyPageClient, MyPageTeacher } from 'pages/mypage'
 
 function App() {
   const GlobalStyle = createGlobalStyle` 

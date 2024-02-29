@@ -1,7 +1,7 @@
 import { Container, List, ListItem } from '@mui/material'
 import Header from 'components/common/Header'
 
-function MyPageClient() {
+export function MyPageClient() {
   return (
     <>
       <Header />
@@ -38,5 +38,3 @@ function MyPageClient() {
     </>
   )
 }
-
-export default MyPageClient

@@ -1,10 +1,10 @@
 import { List, ListItem, Box } from '@mui/material'
 import Header from 'components/common/Header'
 import { Profile, ProfileImg, Section, Container } from './styled'
-import profileImage from '../../assets/userprofile.jpg'
+import profileImage from 'assets/userprofile.jpg'
 import { useNavigate } from 'react-router'
 
-function MyPageTeacher() {
+export function MyPageTeacher() {
   return (
     <>
       <Header />
@@ -54,5 +54,3 @@ function MyPageTeacher() {
     </>
   )
 }
-
-export default MyPageTeacher
