@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-// import Header from '../components/Header';
-// import Footer from '../components/Footer';
+// import Header from 'components/common/Header';
+// import Footer from 'components/Footer';
 import { useNavigate } from 'react-router-dom'
 import { Grid, Button, Box, TextField } from '@mui/material'
 import { styled } from '@mui/material/styles'
-
-import profileImg from '../assets/profileimgtest.png'
+import profileImg from 'assets/profileimgtest.png'
 
 function MyPageClient() {
   // const [user, setUser] = useState();
