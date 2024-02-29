@@ -3,6 +3,7 @@ import { styled } from 'styled-components'
 export const Container = styled.div`
   padding: 120px 10vw 30px 10vw;
   display: flex;
+  text-align: center;
 
   // Desktop
   @media (min-width: 768px) {
