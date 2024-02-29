@@ -1,4 +1,4 @@
-import Header from 'components/common/Header'
+import { Header } from 'components/common'
 import { Container, Title } from './styled'
 
 function SignupPage() {

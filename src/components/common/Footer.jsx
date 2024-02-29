@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { styled } from '@mui/material/styles'
 import { Box, Menu, MenuItem, Button, Grid } from '@mui/material'
 
-function Footer() {
+export function Footer() {
   const items = ['Home', 'About', 'Register with us', 'Privacy Policy', 'Terms & Conditions']
 
   return (
@@ -37,5 +37,3 @@ const Styledul = styled('ul')(() => ({
     //marginBottom: "10px",
   },
 }))
-
-export default Footer

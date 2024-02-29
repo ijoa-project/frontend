@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Frame, Title, Contents, LoginBtn } from './styled'
 
-function Header() {
+export function Header() {
   const navigate = useNavigate()
 
   const onClickUser = () => {
@@ -26,4 +26,3 @@ function Header() {
     </>
   )
 }
-export default Header
