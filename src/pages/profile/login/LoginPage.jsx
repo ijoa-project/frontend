@@ -1,63 +1,62 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import Header from '../../../components/common/Header/Header'
-import { Container, LoginButton, IDField, PWField, Title } from './styled'
-import instance from '../../../api/axios'
+import Header from 'components/common/Header/Header'
+import {
+  Container,
+  LoginBtn,
+  InputField,
+  Title,
+  LoginForm,
+  Content,
+  Body,
+  Option,
+  OptionTxt,
+  SignupBtn,
+} from './styled'
+import instance from 'api/axios'
 
 function LoginPage() {
+  const navigate = useNavigate()
   const [id, setId] = useState('')
   const [password, setPassword] = useState('')
-  const [position, setPosition] = useState('')
-  const navigate = useNavigate()
 
   const onClickSignup = () => {
     navigate('/signup')
   }
 
+  const onClickLogin = async () => {
+    try {
+      const response = await instance.post('/', {
+        id: id,
+        pw: password,
+      })
+      console.log(response.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <>
       <Header />
-      <Container>
-        <div>
+      <Body>
+        <Container>
           <Title>로그인</Title>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', color: '#8D8BA7' }}>
-            <div style={{ marginTop: '20px' }}>아이디를 입력하세요</div>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <div>계정이 없나요?</div>
-              <div onClick={onClickSignup} style={{ color: '#B87514', cursor: 'pointer' }}>
-                회원가입하기
-              </div>
-            </div>
-          </div>
-          <IDField placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
-
-          <div style={{ width: 451, height: 92, position: 'relative' }}>
-            <div
-              style={{
-                left: 0,
-                top: -2,
-                color: '#8D8BA7',
-                fontSize: 16,
-                fontFamily: 'Poppins',
-                fontWeight: '400',
-              }}
-            >
-              비밀번호를 입력하세요
-            </div>
-            <PWField
-              type="password"
-              placeholder="비밀번호"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <LoginButton onClick="">로그인하기</LoginButton>
-          </div>
-        </div>
-      </Container>
+          <LoginForm>
+            <Option>
+              <OptionTxt>계정이 없나요?</OptionTxt>
+              <SignupBtn onClick={onClickSignup}>회원가입하기</SignupBtn>
+            </Option>
+            <Content>아이디를 입력하세요</Content>
+            <InputField type="text" value={id} onChange={(e) => setId(e.target.value)} />
+            <Content>비밀번호를 입력하세요</Content>
+            <InputField type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </LoginForm>
+          <LoginBtn onClick={onClickLogin}>로그인하기</LoginBtn>
+        </Container>
+      </Body>
     </>
   )
 }
+
 export default LoginPage
