@@ -1,7 +1,8 @@
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 import { IoIosArrowDown } from 'react-icons/io'
 
 export const Frame = styled.div`
+  font-family: 'basicFont';
   display: flex;
   padding: 20px 8vw 20px 4vw;
 `
