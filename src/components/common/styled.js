@@ -8,6 +8,7 @@ export const Frame = styled.div`
 `
 
 export const Title = styled.button`
+  font-family: 'basicFont';
   font-weight: 900;
   flex: 0.5;
   font-size: 24px;
@@ -28,6 +29,7 @@ export const Contents = styled.div`
 `
 
 export const LoginBtn = styled.button`
+  font-family: 'basicFont';
   background-color: #5d5a88;
   padding: 10px;
   color: #fff;
@@ -40,6 +42,7 @@ export const LoginBtn = styled.button`
   }
 `
 export const Menu = styled.button`
+  font-family: 'basicFont';
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -63,6 +66,7 @@ export const Dropdown = styled.div`
   padding: 5px;
 `
 export const Item = styled.button`
+  font-family: 'basicFont';
   border: none;
   background-color: transparent;
   color: #9795b5;
