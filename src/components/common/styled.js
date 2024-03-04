@@ -16,23 +16,15 @@ import { styled } from 'styled-components'
 export const Frame = styled.div`
   background-color: white;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 26px 30px 0px 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  zindex: 999;
+  padding: 20px 30px;
 `
 
 export const Title = styled.div`
   font-weight: 700;
-  margin-left: 80px;
-  margin-bottom: 7.5px;
-  text-align: center;
+  flex: 1;
   font-size: 22px;
   color: #5d5a88;
+  cursor: pointer;
   &:hover {
     background-color: #fff;
     cursor: pointer;
@@ -45,7 +37,7 @@ export const Title = styled.div`
 
 export const Contents = styled.div`
   display: flex;
-  justify-content: flex-end;
+  flex: 2;
 `
 
 export const LoginBtn = styled.button`
@@ -54,9 +46,9 @@ export const LoginBtn = styled.button`
   font-size: 16px;
   font-weight: 600;
   border-radius: 40px;
-  background-color: #5D5A88;
+  background-color: #5d5a88;
   color: #fff;
   &:hover {
-    background-color: #8D8BA7;
-  },
+    background-color: #8d8ba7;
+  }
 `

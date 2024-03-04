@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 export const Body = styled.div`
-  padding: 120px 10vw 30px 10vw;
+  padding: 100px 10vw 30px 10vw;
   display: flex;
 
   // Desktop
@@ -87,5 +87,6 @@ export const LoginBtn = styled.button`
 
   &:hover {
     background-color: #8d8ba7;
+    opacity: 0.7;
   }
 `
