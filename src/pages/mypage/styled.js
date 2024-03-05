@@ -24,6 +24,7 @@ export const Section = styled(Box)(() => ({
 }))
 
 export const ProfileImg = styled('img')(() => ({
+  margin: '0px 20px 0px 20px',
   borderRadius: 9999,
   width: 170,
   height: 170,
