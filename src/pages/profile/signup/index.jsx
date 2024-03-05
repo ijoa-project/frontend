@@ -17,8 +17,6 @@ function SignupPage() {
   const [address, setAddress] = useState()
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
-
     try {
       const response = await instance.post('/api/user/join', {
         position,
@@ -29,6 +27,7 @@ function SignupPage() {
         gender,
         phone,
         email,
+        address,
       })
       console.log(response.data)
       navigate('/')
@@ -59,8 +58,8 @@ function SignupPage() {
               <input
                 type="radio"
                 name="position"
-                value="학부모"
-                checked={position === '학부모'}
+                value="parent"
+                checked={position === 'parent'}
                 onChange={(e) => setPosition(e.target.value)}
               />
               학부모
@@ -69,8 +68,8 @@ function SignupPage() {
               <input
                 type="radio"
                 name="position"
-                value="돌보미"
-                checked={position === '돌보미'}
+                value="dolbomi"
+                checked={position === 'dolbomi'}
                 onChange={(e) => setPosition(e.target.value)}
               />
               돌보미
