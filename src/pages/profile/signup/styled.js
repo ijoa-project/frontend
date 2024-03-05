@@ -62,3 +62,20 @@ export const InputField = styled.input`
     outline: none;
   }
 `
+
+export const SignupBtn = styled.button`
+  margin: 20px 0px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: #5d5a88;
+  padding: 15px 80px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: #8d8ba7;
+    opacity: 0.7;
+  }
+`

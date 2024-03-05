@@ -1,6 +1,6 @@
 import { Box, Button } from '@mui/material'
 import { Profile, ProfileImg, Section, Container, SectionTitle, List, ListItem } from './styled'
-import profileImage from 'assets/userprofile.jpg'
+import profileImage from 'assets/images/userprofile.jpg'
 import { useNavigate } from 'react-router'
 import { Header, Footer } from 'components/common'
 
