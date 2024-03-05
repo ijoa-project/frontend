@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router'
 import { Header, Footer } from 'components/common'
 
 export function MyPageClient() {
+  // const items = [{'돌봄 서비스 신청 및 관리', }, ]
+
+  // const
+
   return (
     <>
       <Header />
@@ -19,7 +23,7 @@ export function MyPageClient() {
           <div> {'/*EMAIL ADDRESS*/'} </div>
         </div>
 
-        <div style={{ justifyContent: 'flex-end' }}>
+        <div style={{ marginLeft: 'auto' }}>
           <Button>로그아웃</Button>
           <Button>회원정보 수정</Button>
         </div>

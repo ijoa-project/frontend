@@ -21,7 +21,7 @@ export function MyPageTeacher() {
           <div> {'/*EMAIL ADDRESS*/'} </div>
         </div>
 
-        <div style={{ justifyContent: 'flex-end' }}>
+        <div style={{ marginLeft: 'auto' }}>
           <Button>로그아웃</Button>
           <Button>회원정보 수정</Button>
         </div>
