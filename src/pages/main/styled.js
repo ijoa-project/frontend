@@ -10,6 +10,8 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     justify-content: space-around;
     flex-direction: row;
+    padding: 60px 15vw 30px 15vw;
+    gap: 15px;
   }
 `
 
@@ -28,11 +30,6 @@ export const Section_second = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  // Desktop
-  @media (min-width: 768px) {
-    padding: 80px 0px;
-  }
 `
 
 export const Img = styled.img`
@@ -42,7 +39,7 @@ export const Img = styled.img`
   // Desktop
   @media (min-width: 768px) {
     width: 40vw;
-    padding: 100px 0px;
+    padding: 50px 0px;
   }
 `
 
