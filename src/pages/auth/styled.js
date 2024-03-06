@@ -31,3 +31,55 @@ export const StepButton = styled('button')(() => ({
     background: '#D4D2E3',
   },
 }))
+
+export const PageTitle = styled('div')(() => ({
+  color: '#5D5A88',
+  marginLeft: 70,
+  fontSize: 20,
+  fontWeight: '700',
+}))
+
+export const PageTitleBar = styled('div')(() => ({
+  display: 'flex',
+  margin: '10px 70px 10px 70px',
+  height: 0,
+  border: '0.7px #C0C0C0 solid',
+}))
+
+export const PageDetail = styled('div')(() => ({
+  color: '#9795B5',
+  fontSize: 17,
+  fontWeight: 400,
+  lineHeight: '30px',
+  margin: 30,
+}))
+
+export const ConfirmButton = styled('button')(() => ({
+  backgroundColor: '#5D5A88',
+  width: 140,
+  height: 55,
+  borderRadius: 47.27,
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: '#FFFFFF',
+  fontSize: 22,
+  border: 'none',
+}))
+
+export const TextWrap = styled('div')(() => ({
+  textAlign: 'left',
+  margin: '10px 70px 10px 70px',
+}))
+
+export const TextHighlight = styled('span')(() => ({
+  color: '#5D5A88',
+  fontSize: 23,
+  fontWeight: '650',
+}))
+
+export const Text = styled('div')(() => ({
+  padding: 10,
+  color: '#8D8BA7',
+  fontSize: 21,
+  fontWeight: '400',
+}))
