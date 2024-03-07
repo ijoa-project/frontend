@@ -46,12 +46,12 @@ export const PageTitleBar = styled('div')(() => ({
   border: '0.7px #C0C0C0 solid',
 }))
 
-export const PageDetail = styled('div')(() => ({
+export const SubText = styled('div')(() => ({
   color: '#9795B5',
   fontSize: 17,
   fontWeight: 400,
   lineHeight: '30px',
-  margin: 30,
+  margin: 40,
 }))
 
 export const ConfirmButton = styled('button')(() => ({
@@ -66,20 +66,17 @@ export const ConfirmButton = styled('button')(() => ({
   border: 'none',
 }))
 
-export const TextWrap = styled('div')(() => ({
-  textAlign: 'left',
-  margin: '10px 70px 10px 70px',
-}))
-
-export const TextHighlight = styled('span')(() => ({
-  color: '#5D5A88',
-  fontSize: 23,
-  fontWeight: '650',
-}))
-
 export const Text = styled('div')(() => ({
-  padding: 10,
+  textAlign: 'left',
+  margin: '20px 70px 20px 70px',
+  lineHeight: '40px',
   color: '#8D8BA7',
   fontSize: 21,
   fontWeight: '400',
+}))
+
+export const TextHL = styled('span')(() => ({
+  color: '#5D5A88',
+  fontSize: 23,
+  fontWeight: '650',
 }))
