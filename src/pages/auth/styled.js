@@ -10,7 +10,7 @@ export const AuthButton = styled('button')(() => ({
   fontSize: 24,
   margin: 10,
   '&:hover': {
-    background: '#D4D2E3',
+    opacity: '70%',
   },
 }))
 
@@ -28,7 +28,7 @@ export const StepButton = styled('button')(() => ({
   textAlign: 'left',
   paddingLeft: 40,
   '&:hover': {
-    background: '#D4D2E3',
+    opacity: '70%',
   },
 }))
 

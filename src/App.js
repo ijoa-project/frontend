@@ -4,7 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 import MainPage from 'pages/main'
 import LoginPage from 'pages/profile/login'
 import SignupPage from 'pages/profile/signup'
-import { MyPageClient, MyPageTeacher } from 'pages/mypage'
+import { CalculateTeacher, MyPageClient, MyPageTeacher, CareHistory } from 'pages/mypage'
 import { AuthPage, AuthStep1, AuthStep2, AuthStep3, AuthStep4 } from 'pages/auth'
 import basicFont from 'assets/fonts/NanumGothic.ttf'
 
@@ -36,6 +36,8 @@ function App() {
         <Route path="/auth2" element={<AuthStep2 />} />
         <Route path="/auth3" element={<AuthStep3 />} />
         <Route path="/auth4" element={<AuthStep4 />} />
+        <Route path="/calculateteacher" element={<CalculateTeacher />} />
+        <Route path="/carehistory" element={<CareHistory />} />
       </Routes>
     </BrowserRouter>
   )
