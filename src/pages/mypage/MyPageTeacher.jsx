@@ -1,11 +1,15 @@
-import { Box, Button } from '@mui/material'
 import { Profile, ProfileImg, Section, Container, SectionTitle, List, ListItem } from './styled'
 import profileImage from 'assets/images/userprofile.jpg'
 import { useNavigate } from 'react-router'
 import { Header, Footer } from 'components/common'
+import styled from 'styled-components'
 
 export function MyPageTeacher() {
   const navigate = useNavigate()
+
+  const navigateToCalculate = () => {
+    navigate('/calculateteacher')
+  }
 
   return (
     <>
@@ -27,8 +31,8 @@ export function MyPageTeacher() {
         </div>
       </Profile>
 
-      <Box
-        sx={{
+      <div
+        style={{
           margin: '30px 120px 20px 120px',
           height: '1px',
           display: 'flex',
@@ -55,7 +59,7 @@ export function MyPageTeacher() {
         <Section>
           <SectionTitle>돌봄 활동 정산</SectionTitle>
           <List>
-            <ListItem>계좌 등록</ListItem>
+            <ListItem onClick={navigateToCalculate}>계좌 등록</ListItem>
           </List>
         </Section>
       </Container>
@@ -64,3 +68,19 @@ export function MyPageTeacher() {
     </>
   )
 }
+
+const Button = styled('button')(() => ({
+  backgroundColor: '#5D5A88',
+  width: 100,
+  height: 40,
+  borderRadius: 15,
+  margin: '10px',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: '#FFFFFF',
+  fontSize: 15,
+  border: 'none',
+  '&:hover': {
+    opacity: '70%',
+  },
+}))

@@ -7126,6 +7126,14 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+nginx@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/nginx/-/nginx-1.0.8.tgz#7459890fb4a284b97711dce9483aeafb5615a6fc"
+  integrity sha512-qd6erupgZjSnPX2Qa6uUYnNrdLyt6WyJAdP3olhaAITAveSHwUUzu9s0hnRbiYEQKf27LoSf1bpSqnljw9TyAg==
+  dependencies:
+    chalk "^4.1.0"
+    commander "^7.2.0"
+
 no-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.4.tgz#d361fd5c9800f558551a8369fc0dcd4662b6124d"

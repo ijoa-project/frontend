@@ -1,20 +1,20 @@
-import { styled, Box, Grid, ButtonBase, ListItemText } from '@mui/material'
+import { styled } from 'styled-components'
 
-export const Container = styled(Grid)(() => ({
+export const Container = styled('div')(() => ({
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
   alignItem: 'center',
 }))
 
-export const Profile = styled(Box)(() => ({
-  margin: '150px 120px 10px 120px',
+export const Profile = styled('div')(() => ({
+  margin: '100px 120px 10px 120px',
   display: 'flex',
   alignItems: 'flex-end',
   // justifyContent: 'space-between',
 }))
 
-export const Section = styled(Box)(() => ({
+export const Section = styled('div')(() => ({
   display: 'inline-block',
   border: '1px solid #d4d2e3',
   width: 350,
@@ -30,14 +30,14 @@ export const ProfileImg = styled('img')(() => ({
   height: 170,
 }))
 
-export const Button = styled(ButtonBase)(() => ({
+export const Button = styled('button')(() => ({
   fontSize: 16,
   margin: 10,
   color: 'gray',
   alignItems: 'center',
 }))
 
-export const SectionTitle = styled(Box)(() => ({
+export const SectionTitle = styled('div')(() => ({
   color: '#5d5a88',
   fontWeight: 700,
   paddingTop: 20,
@@ -46,14 +46,28 @@ export const SectionTitle = styled(Box)(() => ({
   textAlign: 'left',
 }))
 
-export const List = styled(Grid)(() => ({
+export const List = styled('div')(() => ({
   paddingBottom: 17,
   textAlign: 'left',
   // justifyContent: 'start',
 }))
 
-export const ListItem = styled(Grid)(() => ({
+export const ListItem = styled('div')(() => ({
   lineHeight: '30px',
   marginLeft: 35,
   cursor: 'pointer',
+}))
+
+export const PageTitle = styled('div')(() => ({
+  color: '#5D5A88',
+  marginLeft: 70,
+  fontSize: 20,
+  fontWeight: '700',
+}))
+
+export const PageTitleBar = styled('div')(() => ({
+  display: 'flex',
+  margin: '10px 70px 10px 70px',
+  height: 0,
+  border: '0.7px #C0C0C0 solid',
 }))

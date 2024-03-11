@@ -10,7 +10,7 @@ export const AuthButton = styled('button')(() => ({
   fontSize: 24,
   margin: 10,
   '&:hover': {
-    background: '#D4D2E3',
+    opacity: '70%',
   },
 }))
 
@@ -28,6 +28,55 @@ export const StepButton = styled('button')(() => ({
   textAlign: 'left',
   paddingLeft: 40,
   '&:hover': {
-    background: '#D4D2E3',
+    opacity: '70%',
   },
+}))
+
+export const PageTitle = styled('div')(() => ({
+  color: '#5D5A88',
+  marginLeft: 70,
+  fontSize: 20,
+  fontWeight: '700',
+}))
+
+export const PageTitleBar = styled('div')(() => ({
+  display: 'flex',
+  margin: '10px 70px 10px 70px',
+  height: 0,
+  border: '0.7px #C0C0C0 solid',
+}))
+
+export const SubText = styled('div')(() => ({
+  color: '#9795B5',
+  fontSize: 17,
+  fontWeight: 400,
+  lineHeight: '30px',
+  margin: 40,
+}))
+
+export const ConfirmButton = styled('button')(() => ({
+  backgroundColor: '#5D5A88',
+  width: 140,
+  height: 55,
+  borderRadius: 47.27,
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: '#FFFFFF',
+  fontSize: 22,
+  border: 'none',
+}))
+
+export const Text = styled('div')(() => ({
+  textAlign: 'left',
+  margin: '20px 70px 20px 70px',
+  lineHeight: '40px',
+  color: '#8D8BA7',
+  fontSize: 21,
+  fontWeight: '400',
+}))
+
+export const TextHL = styled('span')(() => ({
+  color: '#5D5A88',
+  fontSize: 23,
+  fontWeight: '650',
 }))
