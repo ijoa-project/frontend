@@ -17,7 +17,7 @@ import instance from 'api/axios'
 
 function LoginPage() {
   const navigate = useNavigate()
-  const [id, setId] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const onClickSignup = () => {
@@ -26,9 +26,9 @@ function LoginPage() {
 
   const onClickLogin = async () => {
     try {
-      const response = await instance.post('/', {
-        id: id,
-        pw: password,
+      const response = await instance.post('/login', {
+        username: username,
+        password: password,
       })
       console.log(response.data)
     } catch (error) {
@@ -48,7 +48,7 @@ function LoginPage() {
               <SignupBtn onClick={onClickSignup}>회원가입하기</SignupBtn>
             </Option>
             <Content>아이디를 입력하세요</Content>
-            <InputField type="text" value={id} onChange={(e) => setId(e.target.value)} />
+            <InputField type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             <Content>비밀번호를 입력하세요</Content>
             <InputField type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </LoginForm>
