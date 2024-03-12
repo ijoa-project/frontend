@@ -13,24 +13,36 @@ import {
   OptionTxt,
   SignupBtn,
 } from './styled'
-import instance from 'api/axios'
+import instance from 'api/instance'
 
 function LoginPage() {
   const navigate = useNavigate()
-  const [id, setId] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const onClickSignup = () => {
     navigate('/signup')
   }
 
+  // const onClickLogin = async () => {
+  //   try {
+  //     const response = await instance.post('/login', {
+  //       username: username,
+  //       password: password,
+  //     })
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
   const onClickLogin = async () => {
     try {
-      const response = await instance.post('/', {
-        id: id,
-        pw: password,
-      })
-      console.log(response.data)
+      const formData = new FormData()
+      formData.append('username', username)
+      formData.append('password', password)
+
+      const response = await instance.post('/login', formData)
+      console.log(response)
     } catch (error) {
       console.error(error)
     }
@@ -48,7 +60,7 @@ function LoginPage() {
               <SignupBtn onClick={onClickSignup}>회원가입하기</SignupBtn>
             </Option>
             <Content>아이디를 입력하세요</Content>
-            <InputField type="text" value={id} onChange={(e) => setId(e.target.value)} />
+            <InputField type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             <Content>비밀번호를 입력하세요</Content>
             <InputField type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </LoginForm>
