@@ -13,7 +13,7 @@ import {
   OptionTxt,
   SignupBtn,
 } from './styled'
-import instance from 'api/axios'
+import instance from 'api/instance'
 
 function LoginPage() {
   const navigate = useNavigate()
@@ -24,13 +24,25 @@ function LoginPage() {
     navigate('/signup')
   }
 
+  // const onClickLogin = async () => {
+  //   try {
+  //     const response = await instance.post('/login', {
+  //       username: username,
+  //       password: password,
+  //     })
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
   const onClickLogin = async () => {
     try {
-      const response = await instance.post('/login', {
-        username: username,
-        password: password,
-      })
-      console.log(response.data)
+      const formData = new FormData()
+      formData.append('username', username)
+      formData.append('password', password)
+
+      const response = await instance.post('/login', formData)
+      console.log(response)
     } catch (error) {
       console.error(error)
     }
