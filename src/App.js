@@ -7,6 +7,8 @@ import SignupPage from 'pages/profile/signup'
 import { CalculateTeacher, MyPageClient, MyPageTeacher, CareHistory } from 'pages/mypage'
 import { AuthPage, AuthStep1, AuthStep2, AuthStep3, AuthStep4 } from 'pages/auth'
 import basicFont from 'assets/fonts/NanumGothic.ttf'
+import SearchDolbomi from 'pages/search/SearchDolbomi'
+import SearchParent from 'pages/search/SearchParent'
 
 function App() {
   const GlobalStyle = createGlobalStyle` 
@@ -38,6 +40,8 @@ function App() {
         <Route path="/auth4" element={<AuthStep4 />} />
         <Route path="/calculateteacher" element={<CalculateTeacher />} />
         <Route path="/carehistory" element={<CareHistory />} />
+        <Route path="/searchDolbomi" element={<SearchDolbomi />} />
+        <Route path="/searchParent" element={<SearchParent />} />
       </Routes>
     </BrowserRouter>
   )
