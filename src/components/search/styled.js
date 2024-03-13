@@ -133,6 +133,24 @@ export const Title = styled.div`
   color: #6c757d;
   align-self: flex-start;
 `
-export const Select = styled.div``
+export const Select = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+`
 
-export const Option = styled.div``
+export const Option = styled.button`
+  width: 100px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: ${(props) => (props.active ? '#fff' : '#6c757d')};
+  background-color: ${(props) => (props.active ? '#5d5a88' : '#fff')};
+  border-radius: 10px;
+  padding: 5px;
+  &:hover {
+    opacity: 50%;
+  }
+`

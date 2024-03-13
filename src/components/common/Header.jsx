@@ -6,22 +6,23 @@ export function Header() {
   const navigate = useNavigate()
   const [activeMenu, setActiveMenu] = useState(false)
 
-  const routes = {
-    '돌보미 검색': '/searchDolbomi',
-    '돌봄 서비스 신청': '/recruitDolbomi',
-    '돌보미 인증': '/auth',
-    '돌보미 프로필 등록': '/registerProfile',
-    '돌봄 서비스 검색': '/searchCareservice',
+  const navs = {
+    학부모: [
+      { name: '돌보미 검색', path: '/searchDolbomi' },
+      { name: '돌봄 서비스 신청', path: '/recruitDolbomi' },
+    ],
+    돌보미: [
+      { name: '돌보미 인증', path: '/auth' },
+      { name: '돌보미 프로필 등록', path: '/registerProfile' },
+      { name: '돌봄 서비스 검색', path: '/searchParent' },
+    ],
   }
 
-  const menus = [
-    { label: '학부모', items: ['돌보미 검색', '돌봄 서비스 신청'] },
-    { label: '돌보미', items: ['돌보미 인증', '돌보미 프로필 등록', '돌봄 서비스 검색'] },
-  ]
-
-  const onClickMenu = (label) => {
-    // 메뉴가 이미 열려있으면 false로 변환, 아니라면 menuId에 해당하는 메뉴 활성화
-    setActiveMenu(activeMenu === label ? false : label)
+  const onClickPosition = (menu) => {
+    setActiveMenu(activeMenu === menu ? false : menu)
+  }
+  const onClickPath = (path) => {
+    navigate(path)
   }
 
   return (
@@ -29,23 +30,23 @@ export function Header() {
       <Frame>
         <Title onClick={() => navigate('/')}>IJOA</Title>
         <Contents>
-          {menus.map((menu) => (
-            <Menu key={menu.label} onClick={() => onClickMenu(menu.label)}>
-              {menu.label}
+          {Object.keys(navs).map((position) => (
+            <Menu onClick={() => onClickPosition(position)} key={position}>
+              {position}
               <ArrowIcon size="18" />
 
-              {/* activeMenu가 학부모/돌보미일때마다 그에 맞는 드롭다운 표시 */}
-              {activeMenu === menu.label && (
+              {activeMenu === position && (
                 <Dropdown>
-                  {menu.items.map((item) => (
-                    <Item key={item} onClick={() => navigate(routes[item])}>
-                      {item}
+                  {navs[position].map((nav) => (
+                    <Item onClick={() => onClickPath(nav.path)} key={nav.name}>
+                      {nav.name}
                     </Item>
                   ))}
                 </Dropdown>
               )}
             </Menu>
           ))}
+
           <LoginBtn onClick={() => navigate('/login')}>회원가입/로그인</LoginBtn>
         </Contents>
       </Frame>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Table, Thead, Tr, Th, Tbody, Td, TdDesktop, ThDesktop, TdTitle } from './styled'
-import { SearchContainer } from 'pages/styled'
+import { SearchContainer } from 'pages/search/styled'
 
 export const Search = () => {
   const user = [
