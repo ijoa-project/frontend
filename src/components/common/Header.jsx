@@ -9,11 +9,11 @@ export function Header() {
   const navs = {
     학부모: [
       { name: '돌보미 검색', path: '/searchDolbomi' },
-      { name: '돌봄 서비스 신청', path: '/recruitDolbomi' },
+      { name: '돌봄 서비스 신청', path: '/registerParent' },
     ],
     돌보미: [
       { name: '돌보미 인증', path: '/auth' },
-      { name: '돌보미 프로필 등록', path: '/registerProfile' },
+      { name: '돌보미 프로필 등록', path: '/registerDolbomi' },
       { name: '돌봄 서비스 검색', path: '/searchParent' },
     ],
   }

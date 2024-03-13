@@ -134,11 +134,11 @@ export const Title = styled.div`
   align-self: flex-start;
 `
 export const Select = styled.div`
-  padding: 20px;
+  padding: 20px 0px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
 `
 
 export const Option = styled.button`

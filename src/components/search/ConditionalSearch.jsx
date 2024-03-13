@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { Container, ConditionalTab, Button, TabContent, Title, Select, Option } from './styled'
 import Locations from 'assets/data/Locations'
-import Days from 'assets/data/Days'
+import { days } from 'assets/data/Form'
 
 export const ConditionalSearch = () => {
   const [activeTab, setActiveTab] = useState('tab1')
   const [activeGu, setActiveGu] = useState(Locations.서울특별시)
-  const [activeSi, setActiveSi] = useState()
+  const [activeSi, setActiveSi] = useState('서울특별시')
 
   const onClickTab = (tab) => {
     setActiveTab(tab)
@@ -76,7 +76,7 @@ export const ConditionalSearch = () => {
 
               <Title>요일</Title>
               <Select>
-                {Days.map((day, index) => (
+                {days.map((day, index) => (
                   <Option key={index} value={day}>
                     {day}
                   </Option>
