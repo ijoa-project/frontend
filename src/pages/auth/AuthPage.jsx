@@ -6,10 +6,10 @@ export function AuthPage() {
   const navigate = useNavigate()
 
   const steps = [
-    { label: '신분증 등록', link: '/auth1' },
-    { label: '성범죄 및 아동학대 조회 동의서 등록', link: '/auth2' },
-    { label: '보건증 등록', link: '/auth3' },
-    { label: '기타 서류 등록(자격증, 학력서류 등)', link: '/auth4' },
+    { label: '신분증 등록', link: 'step1' },
+    { label: '성범죄 및 아동학대 조회 동의서 등록', link: 'step2' },
+    { label: '보건증 등록', link: 'step3' },
+    { label: '기타 서류 등록(자격증, 학력서류 등)', link: 'step4' },
   ]
 
   return (

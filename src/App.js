@@ -5,7 +5,7 @@ import MainPage from 'pages/main'
 import LoginPage from 'pages/profile/login'
 import SignupPage from 'pages/profile/signup'
 import { CalculateTeacher, MyPageClient, MyPageTeacher, CareHistory } from 'pages/mypage'
-import { AuthPage, AuthStep1, AuthStep2, AuthStep3, AuthStep4 } from 'pages/auth'
+import { AuthLayout, AuthPage, AuthStep1, AuthStep2, AuthStep3, AuthStep4 } from 'pages/auth'
 import basicFont from 'assets/fonts/NanumGothic.ttf'
 import SearchDolbomi from 'pages/search/SearchDolbomi'
 import SearchParent from 'pages/search/SearchParent'
@@ -35,11 +35,13 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/mypageclient" element={<MyPageClient />} />
         <Route path="/mypageteacher" element={<MyPageTeacher />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/auth1" element={<AuthStep1 />} />
-        <Route path="/auth2" element={<AuthStep2 />} />
-        <Route path="/auth3" element={<AuthStep3 />} />
-        <Route path="/auth4" element={<AuthStep4 />} />
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route index element={<AuthPage />} />
+          <Route path="step1" element={<AuthStep1 />} />
+          <Route path="step2" element={<AuthStep2 />} />
+          <Route path="step3" element={<AuthStep3 />} />
+          <Route path="step4" element={<AuthStep4 />} />
+        </Route>
         <Route path="/calculateteacher" element={<CalculateTeacher />} />
         <Route path="/carehistory" element={<CareHistory />} />
         <Route path="/searchDolbomi" element={<SearchDolbomi />} />
