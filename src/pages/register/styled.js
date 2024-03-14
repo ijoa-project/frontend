@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 export const Container = styled.div`
-  padding: 140px 10vw 30px 10vw;
+  padding: 50px 10vw 40px 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,4 +91,9 @@ export const Button = styled.button`
   &:hover {
     opacity: 50%;
   }
+`
+
+// RegisterParent
+export const Content = styled.div`
+  color: #9795b5;
 `
