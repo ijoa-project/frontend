@@ -1,9 +1,19 @@
+import { useState } from 'react'
 import { Footer, Header } from 'components/common'
 import styled from 'styled-components'
 import userIcon from 'assets/images/icon_user.png'
 import homeIcon from 'assets/images/icon_home.png'
+import { PaidlistModal, NonpaylistModal, PaylistModal } from 'components/modals'
 
 export function CalculateTeacher() {
+  const [paidOpen, setPaidOpen] = useState(false)
+  const PaidModalOpen = () => setPaidOpen(true)
+  const PaidModalClose = () => setPaidOpen(false)
+
+  const [unpaidOpen, setUnpaidOpen] = useState(false)
+  const UnpaidModalOpen = () => setUnpaidOpen(true)
+  const UnpaidModalClsoe = () => setUnpaidOpen(false)
+
   return (
     <>
       <Header />
@@ -31,12 +41,15 @@ export function CalculateTeacher() {
         </div>
         <div style={{ width: '50%', float: 'right' }}>
           <SectionTitle>활동비 정산 내역 조회</SectionTitle>
-          <Button>조회하기</Button>
+          <Button onClick={PaidModalOpen}>조회하기</Button>
           <SectionTitle>미정산 활동 내역 조회</SectionTitle>
-          <Button>조회하기</Button>
+          <Button onClick={UnpaidModalOpen}>조회하기</Button>
         </div>
       </div>
       <Footer />
+
+      <PaylistModal open={paidOpen} handleClose={PaidModalClose} />
+      <NonpaylistModal open={unpaidOpen} handleClose={UnpaidModalClsoe} />
     </>
   )
 }
