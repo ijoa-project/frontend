@@ -85,4 +85,8 @@ export const Button = styled.button`
   background-color: #5d5a88;
   font-size: 16px;
   align-self: center;
+  cursor: pointer;
+  &:hover {
+    opacity: 50%;
+  }
 `
