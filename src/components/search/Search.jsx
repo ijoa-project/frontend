@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Table, Thead, Tr, Th, Tbody, Td, TdDesktop, ThDesktop, TdTitle } from './styled'
 import { SearchContainer } from 'pages/search/styled'
+import { DetailProfileModal } from 'components/modals'
 
 export const Search = () => {
   const user = [
@@ -21,6 +22,10 @@ export const Search = () => {
       rating: '3.5',
     },
   ]
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const onClickProfile = () => setModalOpen(true)
+  const onClickClose = () => setModalOpen(false)
   return (
     <>
       <Table>
@@ -36,7 +41,7 @@ export const Search = () => {
         </Thead>
 
         {user.map((user) => (
-          <Tbody key={user.name}>
+          <Tbody key={user.name} onClick={onClickProfile}>
             <TdDesktop width="10%">{user.profile}</TdDesktop>
             <Td width="15%">{user.name}</Td>
             <Td width="20%">{user.address}</Td>
@@ -46,6 +51,7 @@ export const Search = () => {
           </Tbody>
         ))}
       </Table>
+      <DetailProfileModal open={modalOpen} handleClose={onClickClose} />
     </>
   )
 }
