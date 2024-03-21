@@ -6,21 +6,21 @@ import instance from 'api/axios'
 
 function SignupPage() {
   const navigate = useNavigate()
-  const [position, setPosition] = useState()
-  const [id, setId] = useState()
-  const [pw, setPw] = useState()
-  const [name, setName] = useState()
-  const [birthDate, setBirthDate] = useState()
-  const [gender, setGender] = useState()
-  const [phone, setPhone] = useState()
-  const [email, setEmail] = useState()
-  const [address, setAddress] = useState()
+  const [position, setPosition] = useState('')
+  const [userId, setUserId] = useState('')
+  const [pw, setPw] = useState('')
+  const [name, setName] = useState('')
+  const [birthDate, setBirthDate] = useState('')
+  const [gender, setGender] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [address, setAddress] = useState('')
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (e) => {
     try {
       const response = await instance.post('/api/user/join', {
         position,
-        id,
+        userId,
         pw,
         name,
         birthDate,
@@ -29,7 +29,7 @@ function SignupPage() {
         email,
         address,
       })
-      console.log(response.data)
+      console.log(response)
       navigate('/')
     } catch (error) {
       console.error(error)
@@ -82,7 +82,7 @@ function SignupPage() {
           </Divider>
           <Divider>
             <Content>아이디</Content>
-            <InputField type="text" value={id} onChange={(e) => setId(e.target.value)} />
+            <InputField type="text" value={userId} onChange={(e) => setUserId(e.target.value)} />
           </Divider>
           <Divider>
             <Content>비밀번호</Content>

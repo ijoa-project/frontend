@@ -7,6 +7,10 @@ import SignupPage from 'pages/profile/signup'
 import { CalculateTeacher, MyPageClient, MyPageTeacher, CareHistory } from 'pages/mypage'
 import { AuthLayout, AuthPage, AuthStep1, AuthStep2, AuthStep3, AuthStep4 } from 'pages/auth'
 import basicFont from 'assets/fonts/NanumGothic.ttf'
+import SearchDolbomi from 'pages/search/SearchDolbomi'
+import SearchParent from 'pages/search/SearchParent'
+import RegisterDolbomi from 'pages/register/RegisterDolbomi'
+import RegisterParent from 'pages/register/RegisterParent'
 
 function App() {
   const GlobalStyle = createGlobalStyle` 
@@ -40,6 +44,10 @@ function App() {
         </Route>
         <Route path="/calculateteacher" element={<CalculateTeacher />} />
         <Route path="/carehistory" element={<CareHistory />} />
+        <Route path="/searchDolbomi" element={<SearchDolbomi />} />
+        <Route path="/searchParent" element={<SearchParent />} />
+        <Route path="/registerDolbomi" element={<RegisterDolbomi />} />
+        <Route path="/registerParent" element={<RegisterParent />} />
       </Routes>
     </BrowserRouter>
   )
