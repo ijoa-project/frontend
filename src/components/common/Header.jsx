@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UseSelector, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Frame, Title, Contents, LoginBtn, Menu, ArrowIcon, Dropdown, Item } from './styled'
 
 export function Header() {
@@ -26,7 +26,6 @@ export function Header() {
   const onClickPath = (path) => {
     navigate(path)
   }
-  console.log(userInfo)
 
   return (
     <>

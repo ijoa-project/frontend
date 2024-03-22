@@ -14,7 +14,7 @@ import {
   SignupBtn,
 } from './styled'
 import instance from 'api/instance'
-import { UseDispatch, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { login } from 'module/userSlice'
 
 function LoginPage() {
@@ -34,12 +34,14 @@ function LoginPage() {
       formData.append('password', password)
 
       const response = await instance.post('/login', formData)
+      const token = response.headers.authorization
       const userInfo = {
         username,
         password,
+        token,
       }
-      console.log(response.status)
       console.log(userInfo)
+
       if (response.status == 200) {
         dispatch(login(userInfo))
         window.alert('로그인 성공')
