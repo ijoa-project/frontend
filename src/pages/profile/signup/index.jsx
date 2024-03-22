@@ -16,18 +16,18 @@ function SignupPage() {
   const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     try {
       const response = await instance.post('/api/user/join', {
         position,
+        name,
         userId,
         pw,
-        name,
         birthDate,
         gender,
         phone,
         email,
-        address,
       })
       console.log(response)
       navigate('/')
@@ -107,21 +107,21 @@ function SignupPage() {
               <input
                 type="radio"
                 name="gender"
-                value="남"
-                checked={gender === '남'}
+                value="남자"
+                checked={gender === '남자'}
                 onChange={(e) => setGender(e.target.value)}
               />
-              남
+              남자
             </Label>
             <Label>
               <input
                 type="radio"
                 name="gender"
-                value="여"
-                checked={gender === '여'}
+                value="여자"
+                checked={gender === '여자'}
                 onChange={(e) => setGender(e.target.value)}
               />
-              여
+              여자
             </Label>
           </Divider>
           <Divider>
@@ -133,10 +133,10 @@ function SignupPage() {
               onChange={(e) => setPhone(e.target.value)}
             />
           </Divider>
-          <Divider>
+          {/* <Divider>
             <Content>주소</Content>
             <InputField type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </Divider>
+          </Divider> */}
           <SignupBtn type="submit">가입하기</SignupBtn>
         </SignupForm>
       </Container>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UseSelector, useSelector } from 'react-redux'
 import { Frame, Title, Contents, LoginBtn, Menu, ArrowIcon, Dropdown, Item } from './styled'
 
 export function Header() {
   const navigate = useNavigate()
+  const { isLogin, userInfo } = useSelector((state) => state.user)
   const [activeMenu, setActiveMenu] = useState(false)
 
   const navs = {
@@ -24,6 +26,7 @@ export function Header() {
   const onClickPath = (path) => {
     navigate(path)
   }
+  console.log(userInfo)
 
   return (
     <>
@@ -46,8 +49,16 @@ export function Header() {
               )}
             </Menu>
           ))}
-
-          <LoginBtn onClick={() => navigate('/login')}>회원가입/로그인</LoginBtn>
+          {isLogin === true && (
+            <>
+              <LoginBtn onClick={() => navigate('/mypage')}>마이페이지</LoginBtn>
+            </>
+          )}
+          {isLogin === false && (
+            <>
+              <LoginBtn onClick={() => navigate('/login')}>회원가입/로그인</LoginBtn>
+            </>
+          )}
         </Contents>
       </Frame>
     </>
