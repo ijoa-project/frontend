@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { Header, Footer } from 'components/common'
 import instance from 'api/axios'
-import { logout } from 'module/userSlice'
+import { logout, addPosition } from 'module/userSlice'
 
 export function MyPage() {
   const dispatch = useDispatch()
@@ -40,6 +40,7 @@ export function MyPage() {
         .then(function (response) {
           console.log(response)
           const { name, userId, email, position } = response.data
+          dispatch(addPosition(position))
           setData({ ...data, name, userId, email, position })
         })
         .catch(function (error) {
