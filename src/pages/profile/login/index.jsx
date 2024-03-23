@@ -14,8 +14,11 @@ import {
   SignupBtn,
 } from './styled'
 import instance from 'api/instance'
+import { useDispatch } from 'react-redux'
+import { login } from 'module/userSlice'
 
 function LoginPage() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -24,17 +27,6 @@ function LoginPage() {
     navigate('/signup')
   }
 
-  // const onClickLogin = async () => {
-  //   try {
-  //     const response = await instance.post('/login', {
-  //       username: username,
-  //       password: password,
-  //     })
-  //     console.log(response.data)
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
   const onClickLogin = async () => {
     try {
       const formData = new FormData()
@@ -42,7 +34,19 @@ function LoginPage() {
       formData.append('password', password)
 
       const response = await instance.post('/login', formData)
-      console.log(response)
+      const token = response.headers.authorization
+      const userInfo = {
+        username,
+        password,
+        token,
+      }
+      console.log(userInfo)
+
+      if (response.status == 200) {
+        dispatch(login(userInfo))
+        window.alert('로그인 성공')
+        navigate('/')
+      }
     } catch (error) {
       console.error(error)
     }
