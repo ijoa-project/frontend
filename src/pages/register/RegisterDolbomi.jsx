@@ -1,48 +1,54 @@
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from 'components/common'
 import { Container, Title, Introduce, Box, BtnBox, SubTitle, Button, Grid, Option, Input, Label } from './styled'
-import instance from 'api/instance'
-import { days, terms, times, ages, types } from 'assets/data/Form'
+import instance from 'api/axios'
+import { days, types, times, ages, regularities } from 'assets/data/Form'
 import { useMediaQuery } from 'react-responsive'
+import useRegister from 'components/register/useRegister'
+import { useSelector } from 'react-redux'
 
 function RegisterDolbomi() {
-  const [clickedDays, setClickedDays] = useState([])
-  const [clickedTimes, setClickedTimes] = useState([])
-  const [hopeAge, setHopeAge] = useState([])
-  const [hopeGender, setHopeGender] = useState([])
-  const [regularity, setRegularity] = useState([])
+  const { userInfo } = useSelector((state) => state.user)
+  const [clickedDay, toggleDay] = useRegister()
+  const [clickedTime, toggleTime] = useRegister()
+  const [clickedAge, toggleAge] = useRegister()
+  const [clickedGender, toggleGender] = useRegister()
+  const [clickedRegularity, toggleRegularity] = useRegister()
+  const [clickedType, toggleType] = useRegister()
 
   const isMobile = useMediaQuery({
     query: '(max-width:600px)',
   })
 
-  const onClickDay = (day) => {
-    setClickedDays((currentSetDay) => {
-      if (currentSetDay.includes(day)) {
-        return currentSetDay.filter((d) => d !== day)
-      } else {
-        return [...currentSetDay, day]
-      }
-    })
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(clickedDays)
-    console.log(clickedTimes)
-    // try {
-    //   const response = await instance.post('', {
-    //     day,
-    //     time,
-    //     hopeAge,
-    //     hopeGender,
-    //     regularity,
-    //   })
-    //   console.log(response)
-    // } catch (error) {
-    //   console.error(error)
-    // }
+
+    try {
+      const response = await instance.post(
+        '/api/dolbomi/register',
+        {
+          day: clickedDay,
+          time: clickedTime,
+          hopeAge: clickedAge,
+          hopeGender: clickedGender,
+          regularity: clickedRegularity,
+          careType: clickedType,
+          si: '',
+          gu: [],
+          title: '',
+          content: '',
+        },
+        {
+          headers: {
+            Authorization: `${userInfo.token}`,
+          },
+        }
+      )
+      console.log(response)
+    } catch (error) {
+      console.error(error)
+    }
   }
   // {
   //   "day":["월","화","수","목","금"],
@@ -74,12 +80,12 @@ function RegisterDolbomi() {
           {days.map((day) => (
             <>
               {isMobile === true && (
-                <Option selected={clickedDays.includes(day)} key={day} onClick={() => onClickDay(day)}>
+                <Option selected={clickedDay.includes(day)} key={day} onClick={() => toggleDay(day)}>
                   {day.substring(0, 1)}
                 </Option>
               )}
               {isMobile === false && (
-                <Option selected={clickedDays.includes(day)} key={day} onClick={() => onClickDay(day)}>
+                <Option selected={clickedDay.includes(day)} key={day} onClick={() => toggleDay(day)}>
                   {day}
                 </Option>
               )}
@@ -91,67 +97,67 @@ function RegisterDolbomi() {
         <Box>
           {times.map((time) => (
             <>
-              <Input id="times" type="checkbox" value={time} onChange={(e) => setClickedTimes(e.target.value)} />
+              <Input id="times" type="checkbox" value={time} onChange={() => toggleTime(time)} />
               {time}
             </>
           ))}
         </Box>
 
-        {/* <SubTitle>희망 연령</SubTitle>
+        <SubTitle>희망 연령</SubTitle>
         <Box>
-          {ages.map((age, index) => (
+          {ages.map((age) => (
             <>
-              <Input type="checkbox" onChange={(e) => setHopeAge(e.target.value)} />
-              <Label htmlFor="checkbox" key={index}>
-                {age}
-              </Label>
+              <Input id="ages" type="checkbox" value={age} onChange={() => toggleAge(age)} />
+              {age}
             </>
           ))}
         </Box>
 
         <SubTitle>희망 성별</SubTitle>
         <Box>
-          <Input type="checkbox" onChange={(e) => setHopeGender(e.target.value)} />
-          <Label htmlFor="checkbox">남자</Label>
-          <Input type="checkbox" onChange={(e) => setHopeGender(e.target.value)} />
-          <Label htmlFor="checkbox">여자</Label>
+          <Input id="genders" type="checkbox" value={'남자'} onChange={() => toggleGender('남자')} />
+          남자
+          <Input id="genders" type="checkbox" value={'여자'} onChange={() => toggleGender('여자')} />
+          여자
         </Box>
 
         <SubTitle>희망 장소</SubTitle>
 
         <SubTitle>돌봄 기간</SubTitle>
         <Box>
-          {terms.map((term, index) => (
+          {regularities.map((regularity) => (
             <>
-              <Input type="checkbox" onChange={(e) => setRegularity(e.target.value)} />
-              <Label htmlFor="checkbox" key={index}>
-                {term}
-              </Label>
+              <Input
+                id="regularities"
+                type="checkbox"
+                value={regularity}
+                onChange={() => toggleRegularity(regularity)}
+              />
+
+              {regularity}
             </>
           ))}
         </Box>
 
         <SubTitle>돌봄 유형</SubTitle>
         <Box>
-          {types.map((type, index) => (
+          {types.map((type) => (
             <>
-              <Input type="checkbox" />
-              <Label htmlFor="checkbox" key={index}>
-                {type}
-              </Label>
+              <Input id="types" value={type} type="checkbox" onChange={() => toggleType(type)} />
+              {type}
             </>
           ))}
         </Box>
 
         <SubTitle>제목 작성</SubTitle>
         <Box>
-          <Input type="text" />
+          <Input id="titles" type="text" />
         </Box>
 
         <SubTitle>내용 작성</SubTitle>
         <Box>
           <Input type="text" />
-        </Box> */}
+        </Box>
 
         <Button type="submit">등록하기</Button>
       </Grid>
