@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Title, Grid, Select, Option, Input, Label, Box, Button } from './styled'
-import { times, ages, days, types, terms } from 'assets/data/Form'
+import { times, ages, days, types, regularities } from 'assets/data/Form'
 
 function RegisterParentForm() {
   const [startDate, setStartDate] = useState('')
@@ -55,7 +55,7 @@ function RegisterParentForm() {
               <Option disabled selected>
                 돌봄 기간을 선택해주세요
               </Option>
-              {terms.map((term, index) => (
+              {regularities.map((term, index) => (
                 <Option key={index}>{term}</Option>
               ))}
             </Select>

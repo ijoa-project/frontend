@@ -30,6 +30,7 @@ function SignupPage() {
         email,
       })
       console.log(response)
+      window.alert('회원가입이 완료되었습니다. 다시 로그인해주세요.')
       navigate('/')
     } catch (error) {
       console.error(error)
@@ -41,17 +42,6 @@ function SignupPage() {
       <Container>
         <Title>회원가입</Title>
         <SignupForm onSubmit={handleSubmit}>
-          {/* <Divider>
-            <LabelContent>역할</LabelContent>
-            <Label>
-              <input type="radio" name="option" value="학부모" />
-              학부모
-            </Label>
-            <Label>
-              <input type="radio" name="option" value="돌보미" />
-              돌보미
-            </Label>
-          </Divider> */}
           <Divider>
             <LabelContent>역할</LabelContent>
             <Label>
@@ -96,7 +86,7 @@ function SignupPage() {
             <Content>생년월일</Content>
             <InputField
               type="text"
-              placeholder="YYYY / MM / DD"
+              placeholder="YYYYMMDD"
               value={birthDate}
               onChange={(e) => setBirthDate(e.target.value)}
             />
@@ -128,7 +118,7 @@ function SignupPage() {
             <Content>전화번호</Content>
             <InputField
               type="text"
-              placeholder="010-1234-5678"
+              placeholder="01012345678"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
