@@ -1,11 +1,62 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Header } from 'components/common'
-import { Container, Title, Introduce, Box, SubTitle, Button, Grid, Option, Input, Label } from './styled'
+import { Container, Title, Introduce, Box, BtnBox, SubTitle, Button, Grid, Option, Input, Label } from './styled'
 import instance from 'api/instance'
 import { days, terms, times, ages, types } from 'assets/data/Form'
+import { useMediaQuery } from 'react-responsive'
 
 function RegisterDolbomi() {
+  const [clickedDays, setClickedDays] = useState([])
+  const [clickedTimes, setClickedTimes] = useState([])
+  const [hopeAge, setHopeAge] = useState([])
+  const [hopeGender, setHopeGender] = useState([])
+  const [regularity, setRegularity] = useState([])
+
+  const isMobile = useMediaQuery({
+    query: '(max-width:600px)',
+  })
+
+  const onClickDay = (day) => {
+    setClickedDays((currentSetDay) => {
+      if (currentSetDay.includes(day)) {
+        return currentSetDay.filter((d) => d !== day)
+      } else {
+        return [...currentSetDay, day]
+      }
+    })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    console.log(clickedDays)
+    console.log(clickedTimes)
+    // try {
+    //   const response = await instance.post('', {
+    //     day,
+    //     time,
+    //     hopeAge,
+    //     hopeGender,
+    //     regularity,
+    //   })
+    //   console.log(response)
+    // } catch (error) {
+    //   console.error(error)
+    // }
+  }
+  // {
+  //   "day":["월","화","수","목","금"],
+  //   "time":["0시~6시","6시~12시"]
+  //   "hopeAge":["7세이하","13세이하"]
+  //   "hopeGender":["남자"],
+  //   "regularity":["정기돌봄"],
+  //   "si":"서울시",
+  //   "gu":["양천구","중구"],
+  //   "careType":["놀이돌봄","교육돌봄"],
+  //   "title":"안녕하세요. 오은영입니다~",
+  //   "content":"상세한 내용 작성 ex) 경력 or 자격증 등등...",
+  // }
+
   return (
     <>
       <Header />
@@ -17,31 +68,40 @@ function RegisterDolbomi() {
       </Container>
       <Introduce>프로필 등록하기</Introduce>
 
-      <Grid>
+      <Grid onSubmit={handleSubmit}>
         <SubTitle>희망 요일</SubTitle>
-        <Box>
-          {days.map((day, index) => (
-            <Option key={index}>{day}</Option>
+        <BtnBox>
+          {days.map((day) => (
+            <>
+              {isMobile === true && (
+                <Option selected={clickedDays.includes(day)} key={day} onClick={() => onClickDay(day)}>
+                  {day.substring(0, 1)}
+                </Option>
+              )}
+              {isMobile === false && (
+                <Option selected={clickedDays.includes(day)} key={day} onClick={() => onClickDay(day)}>
+                  {day}
+                </Option>
+              )}
+            </>
           ))}
-        </Box>
+        </BtnBox>
 
         <SubTitle>희망 시간대</SubTitle>
         <Box>
-          {times.map((time, index) => (
+          {times.map((time) => (
             <>
-              <Input type="checkbox" />
-              <Label htmlFor="checkbox" key={index}>
-                {time}
-              </Label>
+              <Input id="times" type="checkbox" value={time} onChange={(e) => setClickedTimes(e.target.value)} />
+              {time}
             </>
           ))}
         </Box>
 
-        <SubTitle>희망 연령</SubTitle>
+        {/* <SubTitle>희망 연령</SubTitle>
         <Box>
           {ages.map((age, index) => (
             <>
-              <Input type="checkbox" />
+              <Input type="checkbox" onChange={(e) => setHopeAge(e.target.value)} />
               <Label htmlFor="checkbox" key={index}>
                 {age}
               </Label>
@@ -51,9 +111,9 @@ function RegisterDolbomi() {
 
         <SubTitle>희망 성별</SubTitle>
         <Box>
-          <Input type="checkbox" />
+          <Input type="checkbox" onChange={(e) => setHopeGender(e.target.value)} />
           <Label htmlFor="checkbox">남자</Label>
-          <Input type="checkbox" />
+          <Input type="checkbox" onChange={(e) => setHopeGender(e.target.value)} />
           <Label htmlFor="checkbox">여자</Label>
         </Box>
 
@@ -63,7 +123,7 @@ function RegisterDolbomi() {
         <Box>
           {terms.map((term, index) => (
             <>
-              <Input type="checkbox" />
+              <Input type="checkbox" onChange={(e) => setRegularity(e.target.value)} />
               <Label htmlFor="checkbox" key={index}>
                 {term}
               </Label>
@@ -91,9 +151,9 @@ function RegisterDolbomi() {
         <SubTitle>내용 작성</SubTitle>
         <Box>
           <Input type="text" />
-        </Box>
+        </Box> */}
 
-        <Button>등록하기</Button>
+        <Button type="submit">등록하기</Button>
       </Grid>
     </>
   )

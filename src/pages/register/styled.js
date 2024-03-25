@@ -34,20 +34,10 @@ export const Introduce = styled.div`
     margin: 100px;
   }
 `
-export const Grid = styled.div`
+export const Grid = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0px 25px;
-`
-
-export const Box = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  // Desktop
-  @media (min-width: 768px) {
-    margin: 100px;
-  }
 `
 
 export const SubTitle = styled.div`
@@ -58,12 +48,32 @@ export const SubTitle = styled.div`
   margin-top: 25px;
 `
 
+export const BtnBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: space-evenly;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 100px;
+  }
+`
+export const Box = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 100px;
+  }
+`
+
 export const Option = styled.button`
-  border: 1px solid #ddd;
+  border: ${(props) => (props.selected ? '1px solid #5d5a88' : '1px solid #ddd')};
   border-radius: 50px;
-  padding: 8.5px;
-  background-color: transparent;
-  color: #6c757d;
+  padding: 12px 15px;
+  background-color: ${(props) => (props.selected ? '#5d5a88' : '#fff')};
+  color: ${(props) => (props.selected ? '#fff' : '#6c757d')};
   cursor: pointer;
   &:hover {
     opacity: 50%;
