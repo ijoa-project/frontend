@@ -1,33 +1,33 @@
 import { styled } from 'styled-components'
 
-export const Container = styled('div')(() => ({
-  display: 'flex',
-  justifyContent: 'center',
-  textAlign: 'center',
-  alignItem: 'center',
-}))
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 20px 150px;
+  }
+`
 
-export const Profile = styled('div')(() => ({
-  margin: '100px 120px 10px 120px',
-  display: 'flex',
-  alignItems: 'flex-end',
-  // justifyContent: 'space-between',
-}))
+export const Profile = styled.div`
+  padding: 100px 0px 20px 0px;
+  margin: 0px 20px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 0px 150px;
+    padding: 200px 0px 20px 0px;
+  }
+`
 
 export const Section = styled('div')(() => ({
-  display: 'inline-block',
+  display: 'flex',
+  flexDirection: 'column',
   border: '1px solid #d4d2e3',
-  width: 350,
-  height: 160,
   borderRadius: 15,
   margin: 20,
-}))
-
-export const ProfileImg = styled('img')(() => ({
-  margin: '0px 20px 0px 20px',
-  borderRadius: 9999,
-  width: 170,
-  height: 170,
 }))
 
 export const Button = styled('button')(() => ({

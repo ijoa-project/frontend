@@ -55,34 +55,22 @@ export function MyPage() {
   return (
     <>
       <Header />
-
       <Profile>
-        <ProfileImg src={profileImage} alt="profile-image" />
-        <div style={{ marginLeft: 30, justifyContent: 'flex-start' }}>
+        <div style={{ padding: '0px 20px' }}>
           <div>
-            <h3 style={{ fontSize: 30, display: 'inline' }}>{data.name}</h3> 회원님
+            <span style={{ fontWeight: 700, fontSize: '20px' }}>{data.name}</span> 회원님
           </div>
           <div> {data.userId} </div>
           <div> {data.email} </div>
         </div>
 
-        <div style={{ marginLeft: 'auto' }}>
+        <div>
           <Button onClick={onClickLogout}>로그아웃</Button>
           <Button>회원정보 수정</Button>
         </div>
       </Profile>
 
-      <Box
-        sx={{
-          margin: '30px 120px 20px 120px',
-          height: '1px',
-          display: 'flex',
-          background: '#C0C0C0',
-          alignSelf: 'center',
-        }}
-      />
-
-      <Container style={{ margin: '15px 120px 20px 120px' }}>
+      <Container>
         {data.position === 'parent' && (
           <>
             <Section>
