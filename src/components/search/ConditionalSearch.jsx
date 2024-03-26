@@ -15,9 +15,6 @@ export const ConditionalSearch = () => {
     setActiveSi(si)
     setActiveGu(Locations[si])
   }
-  const onClickGu = (gu) => {
-    setActiveGu(gu)
-  }
 
   return (
     <>
