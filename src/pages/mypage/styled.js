@@ -1,24 +1,24 @@
 import { styled } from 'styled-components'
 
+export const Profile = styled.div`
+  padding: 100px 0px 20px 0px;
+  margin: 0px 25px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 0px 200px;
+    padding: 150px 50px 20px 0px;
+  }
+`
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   // Desktop
   @media (min-width: 768px) {
-    margin: 20px 150px;
-  }
-`
-
-export const Profile = styled.div`
-  padding: 100px 0px 20px 0px;
-  margin: 0px 20px;
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid #ddd;
-  // Desktop
-  @media (min-width: 768px) {
-    margin: 0px 150px;
-    padding: 200px 0px 20px 0px;
+    margin: 20px 200px;
   }
 `
 
@@ -30,12 +30,33 @@ export const Section = styled('div')(() => ({
   margin: 20,
 }))
 
-export const Button = styled('button')(() => ({
-  fontSize: 16,
-  margin: 10,
-  color: 'gray',
-  alignItems: 'center',
-}))
+export const BtnBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  // Desktop
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+`
+
+export const Button = styled.button`
+  margin: 35px 0px 0px 0px;
+  border: none;
+  background-color: #5d5a88;
+  border-radius: 10px;
+  color: white;
+  width: 90px;
+  cursor: pointer;
+  &:hover {
+    opacity: 50%;
+  }
+  // Desktop
+  @media (min-width: 768px) {
+    width: 150px;
+    padding: 10px 0px;
+  }
+`
 
 export const SectionTitle = styled('div')(() => ({
   color: '#5d5a88',

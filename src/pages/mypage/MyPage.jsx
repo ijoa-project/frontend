@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Button } from '@mui/material'
-import { Profile, ProfileImg, Section, Container, SectionTitle, List, ListItem } from './styled'
-import profileImage from 'assets/images/userprofile.jpg'
+import { Profile, Button, Section, Container, SectionTitle, List, ListItem, BtnBox } from './styled'
 import { useNavigate } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
 import { Header, Footer } from 'components/common'
@@ -56,18 +54,18 @@ export function MyPage() {
     <>
       <Header />
       <Profile>
-        <div style={{ padding: '0px 20px' }}>
-          <div>
-            <span style={{ fontWeight: 700, fontSize: '20px' }}>{data.name}</span> 회원님
+        <div style={{ padding: '0px 20px', color: '#6c757d' }}>
+          <div style={{ color: 'black', marginBottom: '5px' }}>
+            <span style={{ fontWeight: 700, fontSize: '24px' }}>{data.name}</span> 회원님
           </div>
-          <div> {data.userId} </div>
-          <div> {data.email} </div>
+          <div style={{ fontSize: '14px' }}> {data.userId} </div>
+          <div style={{ fontSize: '14px' }}> {data.email} </div>
         </div>
 
-        <div>
+        <BtnBox>
           <Button onClick={onClickLogout}>로그아웃</Button>
           <Button>회원정보 수정</Button>
-        </div>
+        </BtnBox>
       </Profile>
 
       <Container>
