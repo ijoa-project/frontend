@@ -19,18 +19,33 @@ export function Header() {
       { name: '돌봄 서비스 검색', path: '/searchParent' },
     ],
   }
-
   const onClickPosition = (menu) => {
     setActiveMenu(activeMenu === menu ? false : menu)
   }
+
   const onClickPath = (path) => {
-    navigate(path)
+    if (userInfo && activeMenu == '학부모') {
+      if (userInfo.position == 'parent') {
+        navigate(path)
+      } else if (userInfo.position == 'dolbomi') {
+        window.alert(`${activeMenu}만 접근 가능합니다.`)
+      }
+    } else if (userInfo && activeMenu == '돌보미') {
+      if (userInfo.position == 'dolbomi') {
+        navigate(path)
+      } else {
+        window.alert(`${activeMenu}만 접근 가능합니다.`)
+      }
+    } else {
+      window.alert('로그인 후 접근해주세요')
+    }
   }
 
   return (
     <>
       <Frame>
         <Title onClick={() => navigate('/')}>IJOA</Title>
+
         <Contents>
           {Object.keys(navs).map((position) => (
             <Menu onClick={() => onClickPosition(position)} key={position}>
