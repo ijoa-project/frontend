@@ -45,7 +45,7 @@ function LoginPage() {
       if (response.status == 200) {
         dispatch(login(userInfo))
         window.alert('로그인 성공')
-        navigate('/')
+        navigate('/mypage')
       }
     } catch (error) {
       console.error(error)
