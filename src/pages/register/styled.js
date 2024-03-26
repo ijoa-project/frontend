@@ -56,7 +56,7 @@ export const Box = styled.div`
   color: #6c757d;
 `
 
-export const Option = styled.button`
+export const Option = styled.div`
   border: ${(props) => (props.selected ? '1px solid #5d5a88' : '1px solid #ddd')};
   border-radius: 50px;
   padding: 10px 13px;
