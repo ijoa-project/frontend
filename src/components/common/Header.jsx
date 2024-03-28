@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { Frame, Title, Contents, LoginBtn, Menu, ArrowIcon, Dropdown, Item } from './styled'
 
 export function Header() {
   const navigate = useNavigate()
+  const { isLogin, userInfo } = useSelector((state) => state.user)
   const [activeMenu, setActiveMenu] = useState(false)
 
   const navs = {
@@ -17,18 +19,33 @@ export function Header() {
       { name: '돌봄 서비스 검색', path: '/searchParent' },
     ],
   }
-
   const onClickPosition = (menu) => {
     setActiveMenu(activeMenu === menu ? false : menu)
   }
+
   const onClickPath = (path) => {
-    navigate(path)
+    if (userInfo && activeMenu == '학부모') {
+      if (userInfo.position == 'parent') {
+        navigate(path)
+      } else if (userInfo.position == 'dolbomi') {
+        window.alert(`${activeMenu}만 접근 가능합니다.`)
+      }
+    } else if (userInfo && activeMenu == '돌보미') {
+      if (userInfo.position == 'dolbomi') {
+        navigate(path)
+      } else {
+        window.alert(`${activeMenu}만 접근 가능합니다.`)
+      }
+    } else {
+      window.alert('로그인 후 접근해주세요')
+    }
   }
 
   return (
     <>
       <Frame>
         <Title onClick={() => navigate('/')}>IJOA</Title>
+
         <Contents>
           {Object.keys(navs).map((position) => (
             <Menu onClick={() => onClickPosition(position)} key={position}>
@@ -46,8 +63,16 @@ export function Header() {
               )}
             </Menu>
           ))}
-
-          <LoginBtn onClick={() => navigate('/login')}>회원가입/로그인</LoginBtn>
+          {isLogin === true && (
+            <>
+              <LoginBtn onClick={() => navigate('/mypage')}>마이페이지</LoginBtn>
+            </>
+          )}
+          {isLogin === false && (
+            <>
+              <LoginBtn onClick={() => navigate('/login')}>회원가입/로그인</LoginBtn>
+            </>
+          )}
         </Contents>
       </Frame>
     </>

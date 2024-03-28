@@ -1,41 +1,62 @@
 import { styled } from 'styled-components'
 
-export const Container = styled('div')(() => ({
-  display: 'flex',
-  justifyContent: 'center',
-  textAlign: 'center',
-  alignItem: 'center',
-}))
+export const Profile = styled.div`
+  padding: 100px 0px 20px 0px;
+  margin: 0px 25px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 0px 200px;
+    padding: 150px 50px 20px 0px;
+  }
+`
 
-export const Profile = styled('div')(() => ({
-  margin: '100px 120px 10px 120px',
-  display: 'flex',
-  alignItems: 'flex-end',
-  // justifyContent: 'space-between',
-}))
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  // Desktop
+  @media (min-width: 768px) {
+    margin: 20px 200px;
+  }
+`
 
 export const Section = styled('div')(() => ({
-  display: 'inline-block',
+  display: 'flex',
+  flexDirection: 'column',
   border: '1px solid #d4d2e3',
-  width: 350,
-  height: 160,
   borderRadius: 15,
   margin: 20,
 }))
 
-export const ProfileImg = styled('img')(() => ({
-  margin: '0px 20px 0px 20px',
-  borderRadius: 9999,
-  width: 170,
-  height: 170,
-}))
+export const BtnBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  // Desktop
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+`
 
-export const Button = styled('button')(() => ({
-  fontSize: 16,
-  margin: 10,
-  color: 'gray',
-  alignItems: 'center',
-}))
+export const Button = styled.button`
+  margin: 35px 0px 0px 0px;
+  border: none;
+  background-color: #5d5a88;
+  border-radius: 10px;
+  color: white;
+  width: 90px;
+  cursor: pointer;
+  &:hover {
+    opacity: 50%;
+  }
+  // Desktop
+  @media (min-width: 768px) {
+    width: 150px;
+    padding: 10px 0px;
+  }
+`
 
 export const SectionTitle = styled('div')(() => ({
   color: '#5d5a88',

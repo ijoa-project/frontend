@@ -10,7 +10,7 @@ export const Container = styled.div`
   @media (min-width: 768px) {
     justify-content: space-around;
     flex-direction: row;
-    padding: 60px 15vw 30px 15vw;
+    padding: 160px 15vw 30px 15vw;
     gap: 15px;
   }
 `

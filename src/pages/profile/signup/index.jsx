@@ -16,20 +16,21 @@ function SignupPage() {
   const [email, setEmail] = useState('')
   const [address, setAddress] = useState('')
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     try {
       const response = await instance.post('/api/user/join', {
         position,
+        name,
         userId,
         pw,
-        name,
         birthDate,
         gender,
         phone,
         email,
-        address,
       })
       console.log(response)
+      window.alert('회원가입이 완료되었습니다. 다시 로그인해주세요.')
       navigate('/')
     } catch (error) {
       console.error(error)
@@ -41,17 +42,6 @@ function SignupPage() {
       <Container>
         <Title>회원가입</Title>
         <SignupForm onSubmit={handleSubmit}>
-          {/* <Divider>
-            <LabelContent>역할</LabelContent>
-            <Label>
-              <input type="radio" name="option" value="학부모" />
-              학부모
-            </Label>
-            <Label>
-              <input type="radio" name="option" value="돌보미" />
-              돌보미
-            </Label>
-          </Divider> */}
           <Divider>
             <LabelContent>역할</LabelContent>
             <Label>
@@ -96,7 +86,7 @@ function SignupPage() {
             <Content>생년월일</Content>
             <InputField
               type="text"
-              placeholder="YYYY / MM / DD"
+              placeholder="YYYYMMDD"
               value={birthDate}
               onChange={(e) => setBirthDate(e.target.value)}
             />
@@ -107,36 +97,36 @@ function SignupPage() {
               <input
                 type="radio"
                 name="gender"
-                value="남"
-                checked={gender === '남'}
+                value="남자"
+                checked={gender === '남자'}
                 onChange={(e) => setGender(e.target.value)}
               />
-              남
+              남자
             </Label>
             <Label>
               <input
                 type="radio"
                 name="gender"
-                value="여"
-                checked={gender === '여'}
+                value="여자"
+                checked={gender === '여자'}
                 onChange={(e) => setGender(e.target.value)}
               />
-              여
+              여자
             </Label>
           </Divider>
           <Divider>
             <Content>전화번호</Content>
             <InputField
               type="text"
-              placeholder="010-1234-5678"
+              placeholder="01012345678"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
           </Divider>
-          <Divider>
+          {/* <Divider>
             <Content>주소</Content>
             <InputField type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-          </Divider>
+          </Divider> */}
           <SignupBtn type="submit">가입하기</SignupBtn>
         </SignupForm>
       </Container>

@@ -4,27 +4,48 @@ import { IoIosArrowDown } from 'react-icons/io'
 export const Frame = styled.div`
   font-family: 'basicFont';
   display: flex;
-  padding: 20px 8vw 20px 4vw;
+  flex-direction: row;
+  position: fixed;
+  width: 94%;
+  gap: 20px;
+  margin: 20px 10px;
+  background-color: white;
+  // Desktop
+  @media (min-width: 560px) {
+    gap: 180px;
+  }
+  // Desktop
+  @media (min-width: 900px) {
+    margin: 20px 0px 20px 80px;
+    width: 85%;
+    gap: 550px;
+  }
 `
 
 export const Title = styled.button`
+  display: 'flex';
   font-family: 'basicFont';
   font-weight: 900;
+  margin-top: 5px;
+  margin-right: 8px;
   flex: 0.5;
   font-size: 24px;
   border: none;
-  background-color: transparent;
+  background-color: white;
   color: #5d5a88;
   cursor: pointer;
   &:hover {
     opacity: 0.5;
   }
+  // Desktop
+  @media (min-width: 768px) {
+    margin-right: 20px;
+  }
 `
 
 export const Contents = styled.div`
   display: flex;
-  justify-content: flex-end;
-  gap: 8vw;
+  justify-content: space-between;
   flex: 2;
 `
 
@@ -43,7 +64,7 @@ export const LoginBtn = styled.button`
 `
 export const Menu = styled.button`
   font-family: 'basicFont';
-  background-color: transparent;
+  background-color: white;
   border: none;
   cursor: pointer;
   color: #5d5a88;
@@ -63,6 +84,7 @@ export const Dropdown = styled.div`
   width: 120px;
   border: 1px solid #ddd;
   border-radius: 20px;
+  background-color: white;
   padding: 5px;
 `
 export const Item = styled.button`
